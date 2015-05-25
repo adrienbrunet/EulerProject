@@ -1,2 +1,3 @@
 # EulerProject
-Repo to hold Euler project exercises
+Repo to hold Euler project exercises.
+Nothing fancy here.
