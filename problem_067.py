@@ -111,10 +111,10 @@ L = [
 for i in range(len(L) - 1):
     line = L[-(i + 1)]
     next_line = L[-(i + 2)]
-    len_nline = len(next_line)
-    for index, j in enumerate(next_line):
+    for index in range(len(next_line)):
         left = line[index]
         right = line[index + 1]
         next_line[index] += max(left, right)
+
 
 print L[0][0]
