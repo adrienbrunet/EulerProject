@@ -21,7 +21,10 @@ def list_factor(number):
 
 
 def test_list_factor():
-    assert list_factor(20) == {1, 20, 2, 10, 4, 5}
+    assert list_factor(20) == {1, 2, 10, 4, 5}
+
+
+test_list_factor()
 
 
 _list = {i: sum(list(list_factor(i))) for i in range(2, 10001)}
