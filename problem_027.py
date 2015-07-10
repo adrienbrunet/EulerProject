@@ -18,12 +18,8 @@ e.g. |11| = 11 and |−4| = 4
 Find the product of the coefficients, a and b, for the quadratic expression that produces the maximum number of primes for consecutive values of n, starting with n = 0.
 '''
 
+
 from helpers import is_prime
-
-
-_max = 1
-_max_a = 1
-_max_b = 1
 
 
 def binome(a, b):
@@ -32,18 +28,23 @@ def binome(a, b):
     return f
 
 
-first_primes = [j for j in range(1001) if is_prime(j)]
+def result(n):
+    _max = 1
+    _max_a = 1
+    _max_b = 1
+    first_primes = [j for j in range(n + 1) if is_prime(j)]
+    for a in range(- n, n + 1):
+        for b in first_primes:
+            i = 0
+            while is_prime(binome(a, b)(i)):
+                i += 1
+            if i >= _max:
+                _max = i
+                _max_a = a
+                _max_b = b
 
-l = []
-for a in range(-1000, 1001):
-    for b in first_primes:
-        i = 0
-        while is_prime(binome(a, b)(i)):
-            i += 1
-        if i >= _max:
-            print(i)
-            _max = i
-            _max_a = a
-            _max_b = b
+    return _max_a * _max_b
 
-print(_max_a * _max_b)
+
+if __name__ == "__main__":
+    print(result(1000))

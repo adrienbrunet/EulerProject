@@ -16,17 +16,15 @@ What is the sum of the numbers on the diagonals in a 1001 by 1001 spiral formed 
 
 
 def trinome(n):
+    ''' The sum of the 4 corners gives that trinome '''
     return 4 * (n ** 2) - (6 * (n - 1))
 
 
 def diag(n):
+    '''iteration over all square'''
     return 1 + sum([trinome(i) for i in range(3, n + 1, 2)])
 
 
-print trinome(3)
-print trinome(5)
-print '-' * 80
-print diag(1)
-print diag(3)
-print diag(5)
-print diag(1001)
+if __name__ == "__main__":
+    print(diag(1001))
+    # 669171001
