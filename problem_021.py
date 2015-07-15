@@ -10,32 +10,32 @@ Evaluate the sum of all the amicable numbers under 10000.
 '''
 
 
-from math import sqrt
+from helpers import factors
 
 
-def list_factor(number):
-    ''' Give the list of factor of a given number'''
-    _result = set([j for i in range(1, int(sqrt(number)) + 1) for j in [i, number // i] if number % i == 0])
-    _result.remove(max(_result))
-    return _result
+def create_amicable_list():
+    return {i: sum(list(factors(i)[:-1])) for i in range(2, 10001)}
 
 
-def test_list_factor():
-    assert list_factor(20) == {1, 2, 10, 4, 5}
+_list = create_amicable_list()
 
 
-test_list_factor()
+def test_create_amicable_list():
+    assert _list[220] == 284
+    assert _list[284] == 220
 
 
-_list = {i: sum(list(list_factor(i))) for i in range(2, 10001)}
+def result():
+    to_sum = []
+    for el in _list:
+        key = _list[el]
+        if key in _list and _list[key] == el and key != el:
+            to_sum.append(el)
 
-assert _list[220] == 284
-assert _list[284] == 220
+    return sum(to_sum)
 
-to_sum = []
-for el in _list:
-    key = _list[el]
-    if key in _list and _list[key] == el and key != el:
-        to_sum.append(el)
 
-print sum(to_sum)
+if __name__ == '__main__':
+    test_create_amicable_list()
+    print(result())
+    # 31626

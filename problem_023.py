@@ -12,26 +12,15 @@ Find the sum of all the positive integers which cannot be written as the sum of 
 '''
 
 
-from math import sqrt
+from helpers import factors
 
 
-def list_factor(number):
-    ''' Give the list of factor of a given number'''
-    _result = set([j for i in range(1, int(sqrt(number)) + 1) for j in [i, number // i] if number % i == 0])
-    _result.remove(max(_result))
-    return _result
+def result():
+    abundant_numbers = [i for i in range(1, 28124) if sum(factors(i)[:-1]) > i]
+    sum_abundants = set(i + j for i in abundant_numbers for j in abundant_numbers)
+    return sum(i for i in range(1, 28124) if i not in sum_abundants)
 
 
-def test_list_factor():
-    assert list_factor(20) == {1, 2, 10, 4, 5}
-
-
-test_list_factor()
-
-
-abundant_numbers = [i for i in range(1, 28124) if sum(list(list_factor(i))) > i]
-
-
-sum_abundants = set(i + j for i in abundant_numbers for j in abundant_numbers)
-result = sum(i for i in range(1, 28124) if i not in sum_abundants)
-print result
+if __name__ == '__main__':
+    print(result())
+    # 4179871

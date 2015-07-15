@@ -11,10 +11,6 @@ What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 
 # If youre dumb like me and didn't kno itertools.permutation before that...
 # The builtin is just 8 times faster...
 
-import time
-
-start = time.time()
-
 
 def permute(s):
     return [s] if len(s) == 1 else [c + perm for i, c in enumerate(s) for perm in permute(s[:i] + s[i + 1:])]
@@ -25,18 +21,20 @@ def test_permute():
     assert permute('ab') == ['ab', 'ba']
 
 
-test_permute()
-
-
-_list = permute('1234567890')
-_list.sort()
-print _list[999999]
-end1 = time.time()
-print end1 - start
+def result():
+    _list = permute('1234567890')
+    _list.sort()
+    return _list[999999]
 
 # If you're not that dumb
 from itertools import permutations
 
-print ''.join(list(permutations('0123456789', 10))[999999])
-end2 = time.time()
-print end2 - end1
+
+def result_fast():
+    return ''.join(list(permutations('0123456789', 10))[999999])
+
+
+if __name__ == '__main__':
+    test_permute()
+    print(result())
+    print(result_fast())
