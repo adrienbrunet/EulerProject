@@ -10,16 +10,18 @@ There exists exactly one Pythagorean triplet for which a + b + c = 1000.
 Find the product abc.
 '''
 
+
 from math import sqrt
 
 
-first_1000_square = [i ** 2 for i in range(1, 1000)]
-
-
 def result():
+    first_1000_square = [i ** 2 for i in range(1, 1000)]
     for (counter, i) in enumerate(first_1000_square):
         for j in first_1000_square[counter + 1:]:
             if i + j in first_1000_square and sqrt(i) + sqrt(j) + sqrt(i + j) == 1000:
                 return int(sqrt(i) * sqrt(j) * sqrt(i + j))
 
-print result()
+
+if __name__ == '__main__':
+    print(result())
+    # 31875000

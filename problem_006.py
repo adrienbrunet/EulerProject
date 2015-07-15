@@ -37,8 +37,10 @@ def test_result():
     assert result(10) == 2640
 
 
-test_sum_square()
-test_square_sum()
-test_result()
+if __name__ == '__main__':
+    test_sum_square()
+    test_square_sum()
+    test_result()
 
-print result(100)
+    print(result(100))
+    # 25164150

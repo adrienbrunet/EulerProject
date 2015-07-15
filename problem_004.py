@@ -27,15 +27,18 @@ def test_is_a_palindrome():
 
 def list_product_3_digit():
     ''' return a list of 3digit product, in a descending order'''
-    _list = list(set(i * j for i in range(100, 1000) for j in range(100, 1000)))
-    _list.sort(reverse=True)
+    _list = sorted(set(i * j for i in range(100, 1000) for j in range(100, 1000)), reverse=True)
     return _list
 
 
-test_reverse_int()
-test_is_a_palindrome()
+def result():
+    for _product in list_product_3_digit():
+        if is_a_palindrome(_product):
+            return _product
 
-for product in list_product_3_digit():
-    if is_a_palindrome(product):
-        print product
-        break
+
+if __name__ == '__main__':
+    test_reverse_int()
+    test_is_a_palindrome()
+    print(result())
+    # 906609

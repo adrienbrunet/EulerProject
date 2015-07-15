@@ -20,6 +20,16 @@ def test_problem2():
     assert get_list_fibonacci_under(100) == [1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
 
 
-test_problem2()
+def result(number):
+    return sum(filter(lambda x: not x % 2, get_list_fibonacci_under(number)))
 
-print sum([i for i in get_list_fibonacci_under(4000000) if i % 2 == 0])
+
+def test_result():
+    assert result(100) == 44
+
+
+if __name__ == '__main__':
+    test_problem2()
+    test_result()
+    print(result(4000000))
+    # 4613732
