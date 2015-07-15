@@ -2,6 +2,7 @@
 
 
 from itertools import chain, cycle, accumulate  # accumuate, python3 only
+from math import sqrt
 
 
 def memoize(f):
@@ -14,7 +15,7 @@ def memoize(f):
 
 
 def memoize_multiple_args(f):
-    """ Memoization decorator for a function taking a single argument """
+    """ Memoization decorator for a function taking many arguments """
     class MemoDict(dict):
         def __init__(self, f):
             self.f = f
@@ -63,12 +64,13 @@ def factors(number):
     factors = [1]
     for _prime in prime_powers(number):
         factors += [factor * prime for factor in factors for prime in _prime]
+        factors.sort()
     return factors
 
 
 @memoize
 def is_prime(number):
-    if (not isinstance(number, int)) or number < 2:
+    if number < 2:
         return False
     for divisor in accumulate(chain([2, 1, 2], cycle([2, 4]))):
         if divisor ** 2 > number:
@@ -76,6 +78,49 @@ def is_prime(number):
         if not number % divisor:
             return False
     return True
+
+
+def eratosthene(limit):
+    """ using a 235 wheel. Inspired from rosettacode.org"""
+    for _ in [2, 3, 5]:
+        yield(_)
+    if limit < 7:
+        return
+    mod_prime = [7, 11, 13, 17, 19, 23, 29, 31]
+    gaps = [4, 2, 4, 2, 4, 6, 2, 6, 4, 2, 4, 2, 4, 6, 2, 6]
+    indexes = [0, 0, 0, 0, 1, 1, 2, 2, 2, 2, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 7, 7, 7, 7, 7]
+    limit_bf = (limit + 23) // 30 * 8 - 1
+    limit_sqrt = (int(sqrt(limit)) - 7)
+    buf = [True] * (limit_bf + 1)
+    for i in range(limit_sqrt + 1):
+        if buf[i]:
+            ci = i & 7
+            p = 30 * (i >> 3) + mod_prime[ci]
+            s = p ** 2 - 7
+            p8 = p << 3
+            for j in range(8):
+                c = s // 30 * 8 + indexes[s % 30]
+                buf[c::p8] = [False] * ((limit_bf - c) // p8 + 1)
+                s += p * gaps[ci]
+                ci += 1
+    for i in range(limit_bf - 6 + (indexes[(limit - 7) % 30])):
+        if buf[i]:
+            yield((3 * (i >> 3) + mod_prime[i & 7]))
+
+
+def eratosthene_slow(limit):
+    non_primes = [False] * (limit + 1)
+    primes = []
+
+    for i in range(2, limit):
+        if non_primes[i]:
+            continue
+        for multiple in range(i ** 2, limit, i):
+            non_primes[multiple] = True
+
+        primes.append(i)
+
+    return primes
 
 
 def test_prime_powers():
@@ -102,7 +147,12 @@ def test_is_power():
     assert not is_power(10, 5)
 
 
-test_prime_powers()
-test_factors()
-test_is_prime()
-test_is_power()
+def test_eratosthene():
+    assert eratosthene(20) == [2, 3, 5, 7, 11, 13, 17, 19]
+
+
+if __name__ == '__main__':
+    test_prime_powers()
+    test_factors()
+    test_is_prime()
+    test_is_power()
