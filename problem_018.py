@@ -51,19 +51,31 @@ L = [
 ]
 
 # For test purpose
-# L = [
-#     [3],
-#     [7, 4],
-#     [2, 4, 6],
-#     [8, 5, 9, 3],
-# ]
+L_test = [
+    [3],
+    [7, 4],
+    [2, 4, 6],
+    [8, 5, 9, 3],
+]
 
-for i in range(len(L) - 1):
-    line = L[-(i + 1)]
-    next_line = L[-(i + 2)]
-    for index in range(len(next_line)):
-        left = line[index]
-        right = line[index + 1]
-        next_line[index] += max(left, right)
 
-print L[0][0]
+def result(_list):
+    for i in range(len(_list) - 1):
+        line = _list[-(i + 1)]
+        next_line = _list[-(i + 2)]
+        for index in range(len(next_line)):
+            left = line[index]
+            right = line[index + 1]
+            next_line[index] += max(left, right)
+
+    return _list[0][0]
+
+
+def test_result():
+    assert result(L_test) == 23
+
+
+if __name__ == '__main__':
+    test_result()
+    print(result(L))
+    # 1074

@@ -10,18 +10,11 @@ How many such routes are there through a 20×20 grid?
 ''' Note: 2 different methods used'''
 
 
-def memoize(f):
-    memo = {(1, 1): 1}
-
-    def helper(i, j):
-        if (i, j) not in memo or not (j, i) in memo:
-            memo[(i, j)] = memo[(j, i)] = f(i, j)
-        return memo[i, j]
-
-    return helper
+from math import factorial
+from helpers import memoize_multiple_args
 
 
-@memoize
+@memoize_multiple_args
 def result(i, j):
     if j == 0:
         return 1
@@ -38,13 +31,17 @@ def test_result():
     assert result(3, 3) == 20
 
 
-print result(20, 20)
+def result2(i):
+    '''
+    Alternatively, for square problem,
+    it can be seen as the selection of n choices
+    (the length of the path is always n) among n + n possibilties.
+    '''
+    return int(factorial(2 * i) / factorial(i) ** 2)
 
 
-'''
-Alternatively, for square problem, it can be seen as the selection of n choices
-(the length of the path is always n) among n + n possibilties.
-'''
-
-from math import factorial
-print factorial(2 * 20) / factorial(20) ** 2
+if __name__ == '__main__':
+    test_result()
+    print(result(20, 20))
+    print(result2(20))
+    # 137846528820

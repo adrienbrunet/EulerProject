@@ -1,8 +1,6 @@
 # coding: utf-8
 
 '''
-
-
 The following iterative sequence is defined for the set of positive integers:
 
 n → n/2 (n is even)
@@ -19,41 +17,41 @@ NOTE: Once the chain starts the terms are allowed to go above one million.
 '''
 
 
-def memoize(f):
+class Collatz(object):
     memo = {1: 1}
 
-    def helper(x, iteration=0):
-        if x not in memo:
-            memo[x] = f(x)
-        return memo[x] + iteration
-
-    return helper
-
-
-@memoize
-def collatz_suite(number, iteration=0):
-    if number == 1:
-        return iteration
-    if number % 2:
-        return collatz_suite(3 * number + 1, iteration + 1)
-    else:
-        return collatz_suite(number / 2, iteration + 1)
+    def collatz_suite(self, number, iteration=0):
+        iteration += 1
+        if number in self.memo:
+            return self.memo[number]
+        else:
+            if number % 2:
+                self.memo[number] = self.collatz_suite(3 * number + 1)
+            else:
+                self.memo[number] = self.collatz_suite(number // 2)
+            return self.memo[number] + iteration
 
 
 def test_collatz_suite():
-    assert collatz_suite(13) == 10
+    solver = Collatz()
+    response = solver.collatz_suite(13)
+    assert response == 10
 
 
 def result():
+    solver = Collatz()
     _max = 1
     rep = 1
-    for i in range(1, 1000000):
-        collatz = collatz_suite(i)
+    for i in range(1, 1000000, 2):
+        collatz = solver.collatz_suite(i)
         if collatz > _max:
             _max = collatz
             rep = i
     return rep
 
 
-test_collatz_suite()
-print result()
+if __name__ == '__main__':
+    test_collatz_suite()
+    print(result())
+    # 837799
+    # 2.6s

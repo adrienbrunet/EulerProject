@@ -51,32 +51,38 @@ L = [
 ]
 
 
-# 20 rows of 20 integers
-_max = 0
+def result():
+    # 20 rows of 20 integers
+    _max = 0
 
-for i in range(20):
-    for j in range(16):
-        # horizontal products
-        product = L[i][j] * L[i][j + 1] * L[i][j + 2] * L[i][j + 3]
-        if product > _max:
-            _max = product
-        # up/down products
-        product = L[j][i] * L[j + 1][i] * L[j + 2][i] * L[j + 3][i]
-        if product > _max:
-            _max = product
+    for i in range(20):
+        for j in range(16):
+            # horizontal products
+            product = L[i][j] * L[i][j + 1] * L[i][j + 2] * L[i][j + 3]
+            if product > _max:
+                _max = product
+            # up/down products
+            product = L[j][i] * L[j + 1][i] * L[j + 2][i] * L[j + 3][i]
+            if product > _max:
+                _max = product
 
-# diagonal products left to right
-for i in range(16):
-    for j in range(16):
-        product = L[i][j] * L[i + 1][j + 1] * L[i + 2][j + 2] * L[i + 3][j + 3]
-        if product > _max:
-            _max = product
+    # diagonal products left to right
+    for i in range(16):
+        for j in range(16):
+            product = L[i][j] * L[i + 1][j + 1] * L[i + 2][j + 2] * L[i + 3][j + 3]
+            if product > _max:
+                _max = product
 
-# diagonal products right to left
-for i in range(3, 20):
-    for j in range(16):
-        product = L[i][j] * L[i - 1][j + 1] * L[i - 2][j + 2] * L[i - 3][j + 3]
-        if product > _max:
-            _max = product
+    # diagonal products right to left
+    for i in range(3, 20):
+        for j in range(16):
+            product = L[i][j] * L[i - 1][j + 1] * L[i - 2][j + 2] * L[i - 3][j + 3]
+            if product > _max:
+                _max = product
 
-print _max
+    return _max
+
+
+if __name__ == '__main__':
+    print(result())
+    # 70600674

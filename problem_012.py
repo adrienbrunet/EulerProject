@@ -21,26 +21,23 @@ What is the value of the first triangle number to have over five hundred divisor
 '''
 
 
-from math import sqrt
+from helpers import factors
 
 
-def list_factor(number):
-    ''' Give the list of factor of a given number'''
-    return set([j for i in range(1, int(sqrt(number)) + 1) for j in [i, number // i] if number % i == 0])
-
-
-def test_list_factor():
-    assert list_factor(20) == {1, 20, 2, 10, 4, 5}
+def triangle_number():
+    i = 1
+    yield(i)
+    while 1:
+        i += 1
+        yield((i * (i + 1)) // 2)
 
 
 def result(nb_divisor):
-    list_triangle_numbers = [sum(range(i + 1)) for i in range(10000, 20000)]
-    for el in list_triangle_numbers:
-        if len(list_factor(el)) > 500:
-            print el
-            break
+    for el in triangle_number():
+        if len(factors(el)) > nb_divisor:
+            return el
 
 
-test_list_factor()
-
-result(1)
+if __name__ == '__main__':
+    print(result(500))
+    # 76576500
