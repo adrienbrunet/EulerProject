@@ -88,7 +88,7 @@ def eratosthene(limit):
         return
     mod_prime = [7, 11, 13, 17, 19, 23, 29, 31]
     gaps = [4, 2, 4, 2, 4, 6, 2, 6, 4, 2, 4, 2, 4, 6, 2, 6]
-    indexes = [0, 0, 0, 0, 1, 1, 2, 2, 2, 2, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 7, 7, 7, 7, 7]
+    indexes = [0, 0, 0, 0, 1, 1, 2, 2, 2, 2, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 7, 7, 7, 7, 7, 7]
     limit_bf = (limit + 23) // 30 * 8 - 1
     limit_sqrt = (int(sqrt(limit)) - 7)
     buf = [True] * (limit_bf + 1)
@@ -96,7 +96,7 @@ def eratosthene(limit):
         if buf[i]:
             ci = i & 7
             p = 30 * (i >> 3) + mod_prime[ci]
-            s = p ** 2 - 7
+            s = (p ** 2) - 7
             p8 = p << 3
             for j in range(8):
                 c = s // 30 * 8 + indexes[s % 30]
@@ -105,7 +105,7 @@ def eratosthene(limit):
                 ci += 1
     for i in range(limit_bf - 6 + (indexes[(limit - 7) % 30])):
         if buf[i]:
-            yield((3 * (i >> 3) + mod_prime[i & 7]))
+            yield((30 * (i >> 3) + mod_prime[i & 7]))
 
 
 def eratosthene_slow(limit):
