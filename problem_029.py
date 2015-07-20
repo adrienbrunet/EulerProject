@@ -32,3 +32,4 @@ def test_result():
 if __name__ == '__main__':
     test_result()
     print(result(100))
+    # 9183
