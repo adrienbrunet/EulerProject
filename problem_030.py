@@ -20,10 +20,10 @@ Find the sum of all the numbers that can be written as the sum of fifth powers o
 
 
 def result(power):
-    _list = [i for i in range(413343) if sum([int(j) ** power for j in str(i)]) == i]
-    return sum(_list) - 1  # the power of 1
+    return sum([i for i in range(295245) if sum([int(j) ** power for j in str(i)]) == i]) - 1  # the power of 1
 
 
 if __name__ == '__main__':
     assert result(4) == 19316
     print(result(5))
+    # 443839
