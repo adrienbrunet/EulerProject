@@ -48,3 +48,4 @@ def result(n):
 
 if __name__ == "__main__":
     print(result(1000))
+    # -59231
