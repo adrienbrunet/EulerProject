@@ -25,22 +25,14 @@ def result_naive():
 
 def result():
     _list = []
-    facts = [(factorial(i), str(i)) for i in range(10)]
-    for nb_perm in range(1, 6 + 1):
-        for _tuple in combinations_with_replacement(facts, nb_perm):
-            _sum = sum([t[0] for t in _tuple])
-            base_nb = "".join([t[1] for t in _tuple])
-
-            for perm in permutations(base_nb):
-                str_perm = "".join(perm)
-                if str_perm.startswith('0'):
-                    continue
-                number = int(str_perm)
-                if number == _sum:
-                    if number > 10:
-                        _list.append(number)
-                    break
-    return sum(set(_list))
+    for i in range(2, 7):
+        list_combinaisons = combinations_with_replacement('0123456789', i)
+        for combinaison in list_combinaisons:
+            sum_factorial = sum(map(factorial, (map(int, combinaison))))
+            if len(str(sum_factorial)) == len(combinaison):
+                if(combinaison in permutations(str(sum_factorial), i)):
+                    list.append(sum_factorial)
+    return sum(_list)
 
 
 if __name__ == '__main__':
