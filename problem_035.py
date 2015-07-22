@@ -15,16 +15,16 @@ from helpers import eratosthene
 def result(_max):
     total = 0
     _list = []
-    list_primes_under_one_million = [i for i in eratosthene(_max)]
-    for i in list_primes_under_one_million:
+    list_primes_under_max = [i for i in eratosthene(_max)]
+    for i in list_primes_under_max:
         stri = str(i)
         if any(number in stri for number in ['2', '4', '5', '6', '8', '0']):
             continue
         list_perm = {int(stri[j:] + stri[:j]) for j in range(len(stri))}
-        if all(perm >= i and perm in list_primes_under_one_million for perm in list_perm):
+        if all(perm >= i and perm in list_primes_under_max for perm in list_perm):
             total += len(list_perm)
             _list.append(i)
-    return 2 + total
+    return 2 + total  # we skipped 2 and 5
 
 
 def test_result():
