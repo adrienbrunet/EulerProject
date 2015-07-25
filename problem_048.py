@@ -18,3 +18,4 @@ def test_result():
 if __name__ == '__main__':
     test_result()
     print(result(1000))
+    # 9110846700
