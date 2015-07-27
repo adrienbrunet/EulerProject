@@ -22,7 +22,10 @@ def result():
     j = 1
     while 1:
         j += 1
+
+        # pentagonal number
         n = j * (3 * j - 1) // 2
+
         for k in range(j - 1, 0, -1):
             m = k * (3 * k - 1) // 2
             if (is_pentagonal(n - m) and is_pentagonal(n + m)):
