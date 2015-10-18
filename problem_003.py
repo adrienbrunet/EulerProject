@@ -18,7 +18,11 @@ def test_result():
     assert result(9) == 3
 
 
+def main():
+    result(600851475143)
+
+
 if __name__ == '__main__':
     test_result()
-    print(result(600851475143))
-    # 6857
+    print(main())
+    # 6857 in 376 usec

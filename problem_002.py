@@ -28,8 +28,11 @@ def test_result():
     assert result(100) == 44
 
 
+def main():
+    return result(4e6)
+
 if __name__ == '__main__':
     test_problem2()
     test_result()
-    print(result(4000000))
-    # 4613732
+    print(main())
+    # 4613732 in 30.4usec

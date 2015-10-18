@@ -16,15 +16,21 @@ def multiple_from_list(_list):
     return multiple
 
 
-def sum_multiple_of_3_5_6_9_below(number):
+def result(number):
     return sum(filter(multiple_from_list([3, 5, 6, 9]), range(number)))
+    # This solution is a tiny bit slower but shorter
+    # return sum(_ for _ in range(number) if not (number % multiple for multiple in [3, 5, 6, 9]))
 
 
 def test_problem1():
-    assert sum_multiple_of_3_5_6_9_below(10) == 23
+    assert result(10) == 23
+
+
+def main():
+    result(1000)
 
 
 if __name__ == '__main__':
     test_problem1()
-    print(sum_multiple_of_3_5_6_9_below(1000))
-    # 233168
+    print(main())
+    # 233168 in 613 usec
