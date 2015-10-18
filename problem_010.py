@@ -8,9 +8,6 @@ Find the sum of all the primes below two million.
 '''
 
 
-''' Ran in 22 sec... Should be optimized...'''
-
-
 from helpers import eratosthene
 
 
