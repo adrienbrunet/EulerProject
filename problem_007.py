@@ -13,7 +13,7 @@ from itertools import chain, cycle, accumulate  # accumuate, python3 only
 from helpers import is_prime
 
 
-def result():
+def main():
     nb_prime = 0
     for i in accumulate(chain([2, 1, 2], cycle([2, 4]))):
         if is_prime(i):
@@ -23,5 +23,5 @@ def result():
 
 
 if __name__ == '__main__':
-    print(result())
-    # 104743
+    print(main())
+    # 104743 in 12.7ms

@@ -37,10 +37,14 @@ def test_result():
     assert result(10) == 2640
 
 
+def main():
+    return result(100)
+
+
 if __name__ == '__main__':
     test_sum_square()
     test_square_sum()
     test_result()
 
-    print(result(100))
-    # 25164150
+    print(main())
+    # 25164150 in 67.4 usec

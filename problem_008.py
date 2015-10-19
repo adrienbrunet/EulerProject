@@ -6,6 +6,7 @@ The four adjacent digits in the 1000-digit number that have the greatest product
 Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. What is the value of this product?
 '''
 
+from functools import reduce
 from operator import mul
 
 
@@ -28,7 +29,11 @@ def test_result():
     assert result(4) == 5832
 
 
+def main():
+    return result(13)
+
+
 if __name__ == '__main__':
     test_result()
-    print(result(13))
-    # 23514624000
+    print(main())
+    # 23514624000 in 5.25ms

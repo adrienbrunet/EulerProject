@@ -10,7 +10,7 @@ What is the smallest positive number that is evenly divisible by all of the numb
 from functools import reduce
 from operator import mul
 
-from helpers import is_prime, eratosthene
+from helpers import eratosthene
 
 
 '''
@@ -51,10 +51,14 @@ def test_product():
     assert product(10) == 2520
 
 
+def main():
+    return product(20)
+
+
 if __name__ == '__main__':
     test_is_divisible_by_all_int_up_to()
     test_get_max_power_below()
     test_product()
 
-    print(product(20))
-    # 232792560
+    print(main())
+    # 232792560 in 23.7usec

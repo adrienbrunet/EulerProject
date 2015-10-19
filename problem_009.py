@@ -14,7 +14,7 @@ Find the product abc.
 from math import sqrt
 
 
-def result():
+def main():
     first_1000_square = [i ** 2 for i in range(1, 1000)]
     for (counter, i) in enumerate(first_1000_square):
         for j in first_1000_square[counter + 1:]:
@@ -23,5 +23,5 @@ def result():
 
 
 if __name__ == '__main__':
-    print(result())
+    print(main())
     # 31875000
