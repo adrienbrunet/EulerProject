@@ -19,7 +19,11 @@ def test_result():
     assert result(10) == 17
 
 
+def main():
+    return result(2000000)
+
+
 if __name__ == '__main__':
     test_result()
-    print(result(2000000))
-    # 142913828922
+    print(main())
+    # 142913828922 in 74ms
