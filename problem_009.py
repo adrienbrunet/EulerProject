@@ -2,7 +2,7 @@
 
 '''
 A Pythagorean triplet is a set of three natural numbers, a < b < c, for which,
-a2 + b2 = c2
+a ** 2 + b ** 2 = c ** 2
 
 For example, 32 + 42 = 9 + 16 = 25 = 52.
 
@@ -12,16 +12,16 @@ Find the product abc.
 
 
 from math import sqrt
+from itertools import combinations
 
 
 def main():
-    first_1000_square = [i ** 2 for i in range(1, 1000)]
-    for (counter, i) in enumerate(first_1000_square):
-        for j in first_1000_square[counter + 1:]:
-            if i + j in first_1000_square and sqrt(i) + sqrt(j) + sqrt(i + j) == 1000:
-                return int(sqrt(i) * sqrt(j) * sqrt(i + j))
+    for (i, j) in combinations(range(1, 1001), 2):
+        k = sqrt(i ** 2 + j ** 2)
+        if i + j + k == 1000 and (k - int(k)) == 0:
+            return i * j * int(k)
 
 
 if __name__ == '__main__':
     print(main())
-    # 31875000
+    # 31875000 in 150ms
