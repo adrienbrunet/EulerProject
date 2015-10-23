@@ -8,20 +8,15 @@ What is the 10 001st prime number?
 '''
 
 
-from itertools import chain, cycle, accumulate  # accumuate, python3 only
+from itertools import islice  # accumuate, python3 only
 
-from helpers import is_prime
+from helpers import eratosthene
 
 
 def main():
-    nb_prime = 0
-    for i in accumulate(chain([2, 1, 2], cycle([2, 4]))):
-        if is_prime(i):
-            nb_prime += 1
-        if nb_prime == 10001:
-            return i
+    return next(islice(eratosthene(105000), 10000, 10000 + 1))
 
 
 if __name__ == '__main__':
     print(main())
-    # 104743 in 12.7ms
+    # 104743 in 5ms
