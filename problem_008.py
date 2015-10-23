@@ -14,15 +14,9 @@ big_ass_number = '''731671765313306249192251196744265747423553491949349698352031
 
 
 def result(number):
-    _max = 1
-    list_product = [big_ass_number[i:i + number] for i in range(len(big_ass_number) - number)]
-
-    for el in list_product:
-        product = reduce(mul, map(int, el), 1)
-        if product > _max:
-            _max = product
-
-    return _max
+    list_factor_as_string = [big_ass_number[i:i + number] for i in range(len(big_ass_number) - number)]
+    list_product = map(lambda el: reduce(mul, map(int, el), 1), list_factor_as_string)
+    return max(list_product)
 
 
 def test_result():
@@ -36,4 +30,4 @@ def main():
 if __name__ == '__main__':
     test_result()
     print(main())
-    # 23514624000 in 5.25ms
+    # 23514624000 in 3ms
