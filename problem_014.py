@@ -28,7 +28,7 @@ class Collatz(object):
             if number % 2:
                 self.memo[number] = self.collatz_suite(3 * number + 1)
             else:
-                self.memo[number] = self.collatz_suite(number // 2)
+                self.memo[number] = self.collatz_suite(number >> 1)
             return self.memo[number] + iteration
 
 
@@ -38,10 +38,9 @@ def test_collatz_suite():
     assert response == 10
 
 
-def result():
+def main():
     solver = Collatz()
     _max = 1
-    rep = 1
     for i in range(1, 1000000, 2):
         collatz = solver.collatz_suite(i)
         if collatz > _max:
@@ -52,6 +51,5 @@ def result():
 
 if __name__ == '__main__':
     test_collatz_suite()
-    print(result())
-    # 837799
-    # 2.6s
+    print(main())
+    # 837799 in 288ms
