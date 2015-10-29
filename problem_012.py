@@ -29,7 +29,7 @@ def triangle_number():
     yield(i)
     while 1:
         i += 1
-        yield((i * (i + 1)) // 2)
+        yield((i * (i + 1)) >> 1)
 
 
 def result(nb_divisor):
