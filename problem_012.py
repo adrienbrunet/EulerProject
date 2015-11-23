@@ -38,6 +38,10 @@ def result(nb_divisor):
             return el
 
 
+def main():
+    return result(500)
+
+
 if __name__ == '__main__':
-    print(result(500))
+    print(main())
     # 76576500

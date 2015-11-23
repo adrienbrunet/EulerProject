@@ -51,7 +51,7 @@ L = [
 ]
 
 
-def result():
+def main():
     # 20 rows of 20 integers
     _max = 0
 
@@ -84,5 +84,5 @@ def result():
 
 
 if __name__ == '__main__':
-    print(result())
+    print(main())
     # 70600674
