@@ -8,14 +8,31 @@ from math import sqrt
 def memoize(f):
     """ Memoization decorator for a function taking a single argument """
     class MemoDict(dict):
+
         def __missing__(self, key):
             ret = self[key] = f(key)
             return ret
     return MemoDict().__getitem__
 
 
+memory = {}
+
+
+def fast_is_prime(prime):
+    '''
+    This method takes 2-3seconds to build a dict with the primes below 1e8.
+    If we have a lot of calls to is_prime, this method could actually save
+    a lot of time...
+    '''
+    if 'primes' not in memory:
+        memory['primes'] = dict.fromkeys(list(eratosthene(int(1e8))), True)
+    return memory['primes'].get(prime, False)
+
+
 def memoize_multiple_args(f):
-    """ Memoization decorator for a function taking many arguments """
+    """
+    Memoization decorator for a function taking many arguments.
+    """
     class MemoDict(dict):
         def __init__(self, f):
             self.f = f
@@ -70,7 +87,7 @@ def factors(number):
 
 @memoize
 def is_prime(number):
-    if number < 2:
+    if number < 2 or number % 2 == 0:
         return False
     for divisor in accumulate(chain([2, 1, 2], cycle([2, 4]))):
         if divisor ** 2 > number:
