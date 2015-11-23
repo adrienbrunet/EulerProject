@@ -1,7 +1,7 @@
 # coding: utf-8
 
 
-from itertools import chain, cycle, accumulate  # accumuate, python3 only
+from itertools import chain, cycle, accumulate  # accumulate, python3 only
 from math import sqrt
 
 
