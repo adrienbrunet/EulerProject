@@ -35,7 +35,12 @@ def test_sum_count():
     assert sum_count(5) == 19
 
 
+def main():
+    return sum_count(1000)
+
+
 if __name__ == '__main__':
     test_count()
     test_sum_count()
     print(sum_count(1000))
+    # 21124 in 44.9ms

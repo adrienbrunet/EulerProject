@@ -16,7 +16,7 @@ How many Sundays fell on the first of the month during the twentieth century (1 
 '''
 
 
-def result():
+def main():
     year = 1901
     day = 1 + 365  # start at year 1901
     list_month_classic = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
@@ -39,5 +39,5 @@ def result():
 
 
 if __name__ == '__main__':
-    print(result())
-    # 171
+    print(main())
+    # 171 in 197usec

@@ -40,8 +40,12 @@ def result2(i):
     return int(factorial(2 * i) / factorial(i) ** 2)
 
 
+def main():
+    return result2(20)
+
+
 if __name__ == '__main__':
     test_result()
     print(result(20, 20))
     print(result2(20))
-    # 137846528820
+    # 137846528820 in 1.4usec

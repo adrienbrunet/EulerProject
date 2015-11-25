@@ -85,4 +85,4 @@ def main():
 
 if __name__ == '__main__':
     print(main())
-    # 70600674
+    # 70600674 in 578usec

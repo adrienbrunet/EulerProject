@@ -75,7 +75,11 @@ def test_result():
     assert result(L_test) == 23
 
 
+def main():
+    return result(L)
+
+
 if __name__ == '__main__':
     test_result()
     print(result(L))
-    # 1074
+    # 1074 in 50.8usec

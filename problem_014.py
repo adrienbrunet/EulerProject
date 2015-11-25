@@ -52,4 +52,4 @@ def main():
 if __name__ == '__main__':
     test_collatz_suite()
     print(main())
-    # 837799 in 288ms
+    # 837799 in 233ms
