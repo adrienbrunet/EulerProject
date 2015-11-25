@@ -46,6 +46,9 @@ def result(n):
     return _max_a * _max_b
 
 
+def main():
+    return result(1000)
+
 if __name__ == "__main__":
-    print(result(1000))
-    # -59231
+    print(main())
+    # -59231 in 597ms

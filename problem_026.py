@@ -41,10 +41,11 @@ def test_recurring_cycle():
 test_recurring_cycle()
 
 
-def result():
+def main():
     _list = [recurring_cycle_length(n) for n in range(1, 1000)]
     return _list.index(max(_list)) + 1  # index starts at 0
 
 
-print result()
-# 983
+if __name__ == '__main__':
+    print(main())
+    # 983 in 300ms

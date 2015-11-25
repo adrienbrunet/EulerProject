@@ -25,7 +25,7 @@ def test_create_amicable_list():
     assert _list[284] == 220
 
 
-def result():
+def main():
     to_sum = []
     for el in _list:
         key = _list[el]
@@ -37,5 +37,5 @@ def result():
 
 if __name__ == '__main__':
     test_create_amicable_list()
-    print(result())
-    # 31626
+    print(main())
+    # 31626 in 1.75ms

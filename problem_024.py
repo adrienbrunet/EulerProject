@@ -22,6 +22,7 @@ def test_permute():
 
 
 def result():
+    '''slow result'''
     _list = permute('1234567890')
     _list.sort()
     return _list[999999]
@@ -30,11 +31,12 @@ def result():
 from itertools import permutations
 
 
-def result_fast():
+def main():
     return ''.join(list(permutations('0123456789', 10))[999999])
 
 
 if __name__ == '__main__':
     test_permute()
     print(result())
-    print(result_fast())
+    print(main())
+    # 2783915460 in 582ms

@@ -11,6 +11,11 @@ Find the sum of the digits in the number 100!
 
 from math import factorial
 
+
+def main():
+    return sum(int(i) for i in str(factorial(100)))
+
+
 if __name__ == '__main__':
-    print(sum(int(i) for i in str(factorial(100))))
-    # 648
+    print(main())
+    # 648 in 32.6 usec

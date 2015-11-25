@@ -23,10 +23,10 @@ def score(name):
     return sum(alphabet.index(letter) + 1 for letter in name)
 
 
-def result():
+def main():
     return sum([score(name) * (counter + 1) for counter, name in enumerate(_list)])
 
 
 if __name__ == '__main__':
-    print(result())
-    # 871198282
+    print(main())
+    # 871198282 in 16.8ms

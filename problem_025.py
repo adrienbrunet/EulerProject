@@ -37,5 +37,11 @@ def get_index_for_fibonacci_with_digit(_max):
 def test_get_index_for_fibonacci_with_digit():
     assert get_index_for_fibonacci_with_digit(2) == 7
 
-test_get_index_for_fibonacci_with_digit()
-print get_index_for_fibonacci_with_digit(1000)
+
+def main():
+    return get_index_for_fibonacci_with_digit(1000)
+
+if __name__ == '__main__':
+    test_get_index_for_fibonacci_with_digit()
+    print(main())
+    # 4782 in 37.1ms
