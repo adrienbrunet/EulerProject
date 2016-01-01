@@ -19,7 +19,7 @@ For which value of p ≤ 1000, is the number of solutions maximised?
 # ==> b can be written: p(p - 2a) / 2(p - a)
 
 
-def result():
+def main():
     perimeter = 0
     max_solution = 0
 
@@ -35,5 +35,5 @@ def result():
 
 
 if __name__ == '__main__':
-    print(result())
-    # 840
+    print(main())
+    # 840 in 40.7ms
