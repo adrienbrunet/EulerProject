@@ -18,7 +18,7 @@ def is_pentagonal(number):
     return not (math.sqrt(1 + 24 * number) + 1) % 6
 
 
-def result():
+def main():
     j = 1
     while 1:
         j += 1
@@ -33,5 +33,5 @@ def result():
 
 
 if __name__ == '__main__':
-    print(result())
-    # 5482660
+    print(main())
+    # 5482660 in 1.86s

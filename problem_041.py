@@ -29,7 +29,7 @@ def is_ndigital(number, n=9):
     return ''.join(sorted(str(number))) == ''.join([str(i) for i in range(1, n+1)])
 
 
-def result():
+def main():
     _max = 0
     for i in eratosthene(7654321):
         if i < 10 ** 6:
@@ -41,5 +41,5 @@ def result():
 
 
 if __name__ == '__main__':
-    print(result())
-    # 7652413
+    print(main())
+    # 7652413 in 759ms

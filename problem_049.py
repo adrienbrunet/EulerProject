@@ -14,7 +14,7 @@ from itertools import permutations
 from helpers import eratosthene
 
 
-def result():
+def main():
     list_primes = list([i for i in eratosthene(9999) if i > 1489])
 
     for counter, prime in enumerate(list_primes):
@@ -31,5 +31,5 @@ def result():
 
 
 if __name__ == '__main__':
-    print(result())
-    # 296962999629
+    print(main())
+    # 296962999629 in 1.29sec

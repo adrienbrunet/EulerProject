@@ -19,7 +19,7 @@ What is the smallest odd composite that cannot be written as the sum of a prime 
 from helpers import is_prime
 
 
-def result():
+def main():
     list_2squares = [2 * (n ** 2) for n in range(1, 708)]  # 708 > sqtr(500 000)
 
     for number in range(3, 10 ** 6, 2):
@@ -28,5 +28,5 @@ def result():
 
 
 if __name__ == '__main__':
-    print(result())
-    # 5777
+    print(main())
+    # 5777 in 59.5 ms

@@ -15,7 +15,11 @@ def test_result():
     assert result(10) == '0405071317'
 
 
+def main():
+    return result(1000)
+
+
 if __name__ == '__main__':
     test_result()
-    print(result(1000))
-    # 9110846700
+    print(main())
+    # 9110846700 in 11ms

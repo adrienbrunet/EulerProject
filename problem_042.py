@@ -22,11 +22,11 @@ def compute_word(word):
     return sum([alphabet.index(letter) + 1 for letter in word])
 
 
-def result():
+def main():
     triangle_numbers = [n * (n + 1) / 2 for n in range(100)]
     return sum([1 for word in words if compute_word(word) in triangle_numbers])
 
 
 if __name__ == '__main__':
-    print(result())
-    # 162
+    print(main())
+    # 162 in 17ms

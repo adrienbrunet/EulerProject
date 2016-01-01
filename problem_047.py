@@ -20,7 +20,7 @@ Find the first four consecutive integers to have four distinct prime factors. Wh
 from helpers import prime_powers
 
 
-def result():
+def main():
     _list_consecutive = []
     for number in range(2 * 3 * 5 * 7, 10 ** 6):
         if len(_list_consecutive) == 4:
@@ -33,5 +33,5 @@ def result():
 
 
 if __name__ == '__main__':
-    print(result())
-    # 134043
+    print(main())
+    # 134043 in 1.89s

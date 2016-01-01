@@ -13,11 +13,11 @@ d1 × d10 × d100 × d1000 × d10000 × d100000 × d1000000
 '''
 
 
-def result():
+def main():
     big_ass_string = ''.join(map(str, range(200000)))
     return int(big_ass_string[1]) * int(big_ass_string[10]) * int(big_ass_string[100]) * int(big_ass_string[1000]) * int(big_ass_string[10000]) * int(big_ass_string[100000]) * int(big_ass_string[1000000])
 
 
 if __name__ == '__main__':
-    print(result())
-    # 210
+    print(main())
+    # 210 in 39.3ms

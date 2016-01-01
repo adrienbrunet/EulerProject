@@ -19,7 +19,7 @@ Find the sum of all 0 to 9 pandigital numbers with this property.
 from itertools import permutations
 
 
-def result():
+def main():
     numbers = []
     for perm in permutations('0123456789'):
         perm = ''.join(perm)
@@ -37,5 +37,5 @@ def result():
 
 
 if __name__ == '__main__':
-    print(result())
-    # 16695334890
+    print(main())
+    # 16695334890 in 2.99sec
