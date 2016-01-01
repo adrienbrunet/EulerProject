@@ -35,7 +35,7 @@ def test_is_a_palindrome():
     assert not is_a_palindrome(12345)
 
 
-def result():
+def main():
     _list = []
     for i in range(1, 1000000, 2):
         if is_a_palindrome(i):
@@ -45,5 +45,5 @@ def result():
 
 
 if __name__ == '__main__':
-    print(result())
-    # 872187
+    print(main())
+    # 872187 in 408ms

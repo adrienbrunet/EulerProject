@@ -26,7 +26,7 @@ def test_is_truncatable_prime():
     assert is_truncatable_prime(3797)
 
 
-def result():
+def main():
     # combinations of prime under 100 that are prime. 2, 3, 5 and 7 are skipped
     truncatable_primes = [23, 37, 53, 73]
 
@@ -46,5 +46,5 @@ def result():
 
 if __name__ == '__main__':
     test_is_truncatable_prime()
-    print(result())
-    # 748317
+    print(main())
+    # 748317 in 345ms

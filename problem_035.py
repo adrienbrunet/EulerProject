@@ -31,7 +31,10 @@ def test_result():
     assert result(100) == 13
 
 
+def main():
+    return result(1000000)
+
 if __name__ == '__main__':
     test_result()
-    print(result(1000000))
-    # 55
+    print(main())
+    # 55 in 1.02sec

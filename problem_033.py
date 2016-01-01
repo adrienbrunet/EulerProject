@@ -13,7 +13,7 @@ If the product of these four fractions is given in its lowest common terms, find
 import fractions
 
 
-def result():
+def main():
     p = fractions.Fraction(1, 1)
     for numerator in range(10, 100, 1):
         for denominator in range(numerator + 1, 100, 1):
@@ -21,7 +21,7 @@ def result():
             if not denominator % 10 or numerator == denominator:
                 continue
             # Decompose: x * 10 + a / a < 10
-            prod_num, prod_den = [numerator / 10, numerator % 10], [denominator / 10, denominator % 10]
+            prod_num, prod_den = [numerator // 10, numerator % 10], [denominator // 10, denominator % 10]
             # search common factor
             if any(i in prod_den for i in prod_num) and any(i not in prod_den for i in prod_num):
                 common = prod_num[0] if prod_num[0] in prod_den else prod_num[1]
@@ -34,5 +34,5 @@ def result():
 
 
 if __name__ == '__main__':
-    print(result())
-    # 1/100
+    print(main())
+    # 1/100 in 5.54ms

@@ -18,10 +18,13 @@ def result(money):
     for value in coin_values:
         for target in range(value, money + 1):
             memo_nb_possibilities_to_make[target] += memo_nb_possibilities_to_make[target - value]
-    print memo_nb_possibilities_to_make
     return memo_nb_possibilities_to_make[money]
 
 
+def main():
+    return result(200)
+
+
 if __name__ == '__main__':
-    print(result(200))
-    # 73682
+    print(main())
+    # 73682 in 203µs

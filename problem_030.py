@@ -18,12 +18,18 @@ Find the sum of all the numbers that can be written as the sum of fifth powers o
 # 9 ** 5 = 59049
 # 9 999 999 = 7*59049 --> au maximum on atteint: 413343
 
+# Update: I do not remember where 295245 comes from. :/
+
 
 def result(power):
     return sum([i for i in range(295245) if sum([int(j) ** power for j in str(i)]) == i]) - 1  # the power of 1
 
 
+def main():
+    return result(5)
+
+
 if __name__ == '__main__':
     assert result(4) == 19316
-    print(result(5))
-    # 443839
+    print(main())
+    # 443839 in 967ms

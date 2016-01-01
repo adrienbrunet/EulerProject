@@ -25,7 +25,7 @@ def test_is_9pandigital():
     assert not is_9pandigital(9976654321)
 
 
-def result():
+def main():
     '''
     We look for the largest number.
     The example gives 9 and (1, 2, 3, 4, 5) -->  918273645 and it's not the solution
@@ -54,5 +54,5 @@ def result():
 
 if __name__ == '__main__':
     test_is_9pandigital()
-    print(result())
-    # 932718654
+    print(main())
+    # 932718654 in 326 µs

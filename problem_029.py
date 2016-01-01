@@ -29,7 +29,11 @@ def test_result():
     assert result(5) == 15
 
 
+def main():
+    return result(100)
+
+
 if __name__ == '__main__':
     test_result()
-    print(result(100))
-    # 9183
+    print(main())
+    # 9183 in 7.84ms

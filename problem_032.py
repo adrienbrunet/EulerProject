@@ -26,7 +26,7 @@ def product_half_splitted_at(permutation, n):
     return make_int(permutation[:n]) * make_int(permutation[n:])
 
 
-def result():
+def main():
     products = set()
     target = range(1, 10)
     for permutation in itertools.permutations(target, 5):
@@ -41,5 +41,5 @@ def result():
 
 
 if __name__ == '__main__':
-    print(result())
-    # 45228
+    print(main())
+    # 45228 in 155ms

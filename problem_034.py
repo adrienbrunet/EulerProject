@@ -23,7 +23,7 @@ def result_naive():
     return _list
 
 
-def result():
+def main():
     _list = []
     for i in range(2, 7):
         list_combinaisons = combinations_with_replacement('0123456789', i)
@@ -31,10 +31,10 @@ def result():
             sum_factorial = sum(map(factorial, (map(int, combinaison))))
             if len(str(sum_factorial)) == len(combinaison):
                 if(combinaison in permutations(str(sum_factorial), i)):
-                    list.append(sum_factorial)
+                    _list.append(sum_factorial)
     return sum(_list)
 
 
 if __name__ == '__main__':
-    print(result())
-    # 40730
+    print(main())
+    # 40730 in 91.4ms

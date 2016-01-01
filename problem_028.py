@@ -25,6 +25,10 @@ def diag(n):
     return 1 + sum([trinome(i) for i in range(3, n + 1, 2)])
 
 
+def main():
+    return diag(1001)
+
+
 if __name__ == "__main__":
-    print(diag(1001))
-    # 669171001
+    print(main())
+    # 669171001 in 300µs
