@@ -22,7 +22,7 @@ In the first one-thousand expansions, how many fractions contain a numerator wit
 # Denominator D(n+1) = D(n) + N(n) | Numerator N(n+1) = N(n) + 2*D(n))
 
 
-def result():
+def main():
     numerator, denominator, result = 3, 2, 0
     for _ in range(10 ** 3):
         numerator, denominator = numerator + 2 * denominator, numerator + denominator
@@ -32,5 +32,5 @@ def result():
 
 
 if __name__ == '__main__':
-    print(result())
-    # 153
+    print(main())
+    # 153 in 3.98ms

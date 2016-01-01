@@ -30,7 +30,7 @@ def get_digit_count_dict(number):
     return {digit: list_digits.count(digit) for digit in '0123456789'}
 
 
-def result():
+def main():
     list_primes = list(eratosthene(1000000))
 
     for prime in list_primes:
@@ -56,5 +56,5 @@ def result():
 
 
 if __name__ == '__main__':
-    print(result())
-    # 121313
+    print(main())
+    # 121313 in 57.7ms

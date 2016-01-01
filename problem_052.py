@@ -20,7 +20,7 @@ def same_digits(number):
     return True
 
 
-def result():
+def main():
     number = 10
     while 1:
         str_number = str(number)
@@ -36,5 +36,5 @@ def result():
 
 
 if __name__ == '__main__':
-    print(result())
-    # 142857
+    print(main())
+    # 142857 in 201ms

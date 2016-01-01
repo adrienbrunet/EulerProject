@@ -42,10 +42,10 @@ def give_palindrome_or_not(number):
     return False
 
 
-def result():
+def main():
     return sum([1 for _ in range(10001) if not give_palindrome_or_not(_)])
 
 
 if __name__ == '__main__':
-    print(result())
-    # 249
+    print(main())
+    # 249 in 1.08ms

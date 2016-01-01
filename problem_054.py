@@ -113,7 +113,7 @@ class PokerHand(object):
             return True
 
 
-def result():
+def main():
     result = 0
     for line in csv.reader(open('./problem_054.input.txt'), delimiter=' '):
         hand1, hand2 = PokerHand(line[0:5]), PokerHand(line[5:])
@@ -126,7 +126,7 @@ if __name__ == '__main__':
     assert not PokerHand(['5H', '5C', '6S', '7S', 'KD']) > PokerHand(['2C', '3S', '8S', '8D', 'TD'])
     assert PokerHand(['5D', '8C', '9S', 'JS', 'AC']) > PokerHand(['2C', '5C', '7D', '8S', 'QH'])
     assert not PokerHand(['2D', '9C', 'AS', 'AH', 'AC']) > PokerHand(['3D', '6D', '7D', 'TD', 'QD'])
-    assert PokerHand(['4D', '6S', '9H', 'QH', 'QC']) > PokerHand(['3D', '6D', '7H', 'QD', 'QS'])      
+    assert PokerHand(['4D', '6S', '9H', 'QH', 'QC']) > PokerHand(['3D', '6D', '7H', 'QD', 'QS'])
     assert PokerHand(['2H', '2D', '4C', '4D', '4S']) > PokerHand(['3C', '3D', '3S', '9S', '9D'])
-    print(result())
-    # 376
+    print(main())
+    # 376 in 66.8ms

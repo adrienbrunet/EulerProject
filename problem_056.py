@@ -12,7 +12,7 @@ def sum_digits(number):
     return sum([int(i) for i in str(number)])
 
 
-def result():
+def main():
     _max = 0
     for a in range(100):
         for b in range(100):
@@ -22,5 +22,5 @@ def result():
 
 
 if __name__ == '__main__':
-    print(result())
-    # 972
+    print(main())
+    # 972 in 243ms

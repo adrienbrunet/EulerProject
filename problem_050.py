@@ -44,6 +44,10 @@ def test_result():
     assert result(1000) == 953
 
 
+def main():
+    return result(1000000)
+
+
 if __name__ == '__main__':
     test_result()
-    print(result(1000000))
+    print(main())

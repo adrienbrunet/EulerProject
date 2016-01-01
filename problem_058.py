@@ -20,7 +20,7 @@ If one complete new layer is wrapped around the spiral above, a square spiral wi
 from helpers import is_prime
 
 
-def result():
+def main():
     _len = 1
     nb_primes = 0
     ratio = 1
@@ -42,5 +42,5 @@ def result():
 
 
 if __name__ == '__main__':
-    print(result())
-    # 26241
+    print(main())
+    # 26241 in 25ms
