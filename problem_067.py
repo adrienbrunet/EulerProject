@@ -108,13 +108,18 @@ L = [
 ]
 
 
-for i in range(len(L) - 1):
-    line = L[-(i + 1)]
-    next_line = L[-(i + 2)]
-    for index in range(len(next_line)):
-        left = line[index]
-        right = line[index + 1]
-        next_line[index] += max(left, right)
+def main():
+    for i in range(len(L) - 1):
+        line = L[-(i + 1)]
+        next_line = L[-(i + 2)]
+        for index in range(len(next_line)):
+            left = line[index]
+            right = line[index + 1]
+            next_line[index] += max(left, right)
+
+    return L[0][0]
 
 
-print L[0][0]
+if __name__ == '__main__':
+    print(main())
+    # 7273 in 1.64 msec
