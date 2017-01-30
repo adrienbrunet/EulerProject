@@ -48,9 +48,18 @@ def memoize_multiple_args(f):
 
 def is_power(a, b):
     ''' Check if a is a power of b'''
-    return True if isinstance(a, int) and isinstance(b, int) and (a > 0 and b > 0) and (a == b or (b != 1 and not a % b and is_power(a // b, b))) else False
+    return (
+        isinstance(a, int) and
+        isinstance(b, int) and
+        (a > 0 and b > 0) and
+        (
+            a == b or
+            (b != 1 and not a % b and is_power(a // b, b))
+        )
+    )
 
 
+@memoize
 def prime_powers(number):
     '''
     Find the prime powers of a number.
