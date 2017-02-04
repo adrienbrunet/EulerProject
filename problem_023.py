@@ -11,16 +11,22 @@ By mathematical analysis, it can be shown that all integers greater than 28123 c
 Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.
 '''
 
+from itertools import combinations_with_replacement
 
 from helpers import factors
 
 
+upper_limit = 28124
+
+
 def main():
-    abundant_numbers = [i for i in range(1, 28124) if sum(factors(i)[:-1]) > i]
-    sum_abundants = set(i + j for i in abundant_numbers for j in abundant_numbers)
-    return sum(i for i in range(1, 28124) if i not in sum_abundants)
+    numbers_to_upper_limit = range(upper_limit)
+    abundant_numbers = [nb for nb in numbers_to_upper_limit if sum(factors(nb)) > 2 * nb]
+    sum_abundants = sum(set(i + j for i, j in combinations_with_replacement(abundant_numbers, 2) if i + j < upper_limit))
+    sum_all_numbers = upper_limit * (upper_limit - 1) // 2
+    return sum_all_numbers - sum_abundants
 
 
 if __name__ == '__main__':
     print(main())
-    # 4179871 in 5.93sec
+    # 4179871 in 2.77sec
