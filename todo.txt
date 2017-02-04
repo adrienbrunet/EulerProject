@@ -1,2 +1,0 @@
-23 super lent
-35 use permutations library instead of str[:j] + str[j:]
