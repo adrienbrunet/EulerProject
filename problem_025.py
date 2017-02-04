@@ -41,6 +41,7 @@ def test_get_index_for_fibonacci_with_digit():
 def main():
     return get_index_for_fibonacci_with_digit(1000)
 
+
 if __name__ == '__main__':
     test_get_index_for_fibonacci_with_digit()
     print(main())
